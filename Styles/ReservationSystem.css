@@ -1,0 +1,76 @@
+/* 
+File: ReservationSystem.css Date: 2025-01-22
+
+Author: Gunnar Liden
+
+General information
+====================
+
+Defines all style classes for the application reservation layout
+
+*/
+
+/* The whole page */
+.cl_div_system_page
+{
+    border: solid 2px blue;
+    font-family: 'Arial';
+    font-size: 15px;
+    font-weight: bold;
+    width: 750px;
+    margin-top: 20px;
+    margin-left: 20px;
+    overflow: hidden; 
+    min-height: 420px;
+}
+
+/* Text logo <div> element */
+.cl_div_system_footer
+{
+    /* border: solid 2px yellow; */
+    text-align: center;
+    background-color: rgb(60, 86, 218);
+    font-family: 'Arial';
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow: hidden;   
+    width: 755px;
+    margin-left: 20px;
+}
+
+.cl_system_logo_text
+{
+    font-family: 'Brush Script MT', cursive;
+
+    font-weight: bold;
+
+    margin-left: 10px;
+    
+    border: solid 2px rgb(60, 86, 218);
+    color: rgb(60, 86, 218);  
+    background-color: yellow;
+    padding-left: 5px;
+    padding-right: 5px;
+    float: left;
+}
+
+.cl_system_header_text
+{
+    margin-left: 55px;
+    float: left;
+}
+
+.m_copyright
+{
+    font-size: 10px;
+
+    color: white;
+
+    margin-right: 35px;
+    padding-top: 9px;
+
+    float: right;
+}
