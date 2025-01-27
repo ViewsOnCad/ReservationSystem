@@ -12,6 +12,16 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />	
 
+
+    <!-- Styles for the application  -->
+    <link rel="stylesheet" href="Styles/ReservationSystem.css">
+
+    <!--  Main function for the application -->
+    <script type="text/javascript" src="Scripts/ReservationSystem.js"></script>
+
+    <!--  Class for the creation step  -->
+    <script type="text/javascript" src="Scripts/SelectStep.js"></script>
+
     <!--  jQuery library -->
     <script src="jQuery/jquery-3.6.0.js"></script>
 
@@ -33,13 +43,14 @@
     <!--  Class with URL utility functions  -->
     <script type="text/javascript" src="Scripts/UtilUrl.js"></script>
 
-    <!-- Styles for the application  -->
-    <link rel="stylesheet" href="Styles/ReservationSystem.css">
-
-    <!--  Main function for the application -->
-    <script type="text/javascript" src="Scripts/ReservationSystem.js"></script>
-
+     <!--  Handles the copyright text -->
     <script type="text/javascript" src="Libs/copyright.min.js"></script>
+
+    <script>
+        // Language: german, english, swedish, french or italian
+        var g_reservation_language = "german"; 
+        
+    </script>
 
 
     <title>Reservation system creation</title>
@@ -49,6 +60,11 @@
 <body onload= "initReservationSystem()">
 
     <div id= 'id_div_system_page' class= 'cl_div_system_page'>
+
+        <div id="id_div_select_display_step" class="cl_div_select_display_step" >
+            <div id="id_div_display_step" class="cl_div_display_step" >Display selected step</div>
+            <div id="id_div_select_step" class="cl_div_select_step" >Select step with a dropdown control</div>
+        </div>
 
 
 
@@ -99,7 +115,7 @@
         <div class="cl_system_header_text">
             Reservation System 
         </div>
-        <div class="plugin-copyright m_copyright" data-owner="Gunnar Liden"></div>
+        <div class="plugin-copyright m_copyright" data-owner="Gunnar Lidén"></div>
     </div>
 
     

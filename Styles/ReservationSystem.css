@@ -24,6 +24,29 @@ Defines all style classes for the application reservation layout
     min-height: 420px;
 }
 
+.cl_div_display_step
+{
+    background-color: rgb(60, 86, 218);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 100%;
+    clear: both;
+}
+
+.cl_div_select_step
+{
+    border: solid 1px black; 
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 100%;
+    clear: both;
+}
+
 /* Text logo <div> element */
 .cl_div_system_footer
 {

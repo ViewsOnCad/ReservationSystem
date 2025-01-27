@@ -1,5 +1,5 @@
 // File: JazzDropdown.js
-// Date: 2024-12-22
+// Date: 2024-12-23
 // Author: Gunnar Lidén
 
 // Inhalt
