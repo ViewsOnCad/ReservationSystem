@@ -1,57 +1,49 @@
 // File: SelectStep.js
-// Date: 2025-01-22
+// Date: 2025-01-27
 // Author: Gunnar Lidén
 
-// Inhalt
-// =============
+// Content
+// =======
 //
-// Class with functions and data for the select creation process step
+// Class with static functions for the select process step
+//
+// The corresponding data class SelectStepData holds data for the step
+// With this division in two classes it is possible to define event functions
+// in the static class
 
 
 class SelectStep
 {
-
-    constructor(i_id_div_select_display_step, i_id_div_display_container, i_id_div_select_container)
-    {
-        // The identity of the container <div> for the select creation process step
-        this.m_id_div_select_display_step = i_id_div_select_display_step;
-
-        // The identity of the <div> that diplays the process step
-        this.m_id_div_display_container = i_id_div_display_container;
-
-        // The identity of the container <div> for the select step dropdown control 
-        this.m_id_div_select_container = i_id_div_select_container;
-
-        // Array of strings defining the steps of the creation process
-        this.m_step_array = [];
-
-        this.default();
-
-        // Sets the creation step array m_step_array
-        this.setStepArray();
-
-    } // constructor
-
-    ///////////////////////////////////////////////////////////////////////////
-    /////// Start Default Values //////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////
-
-
-    // Sets the default values for the member variables
-    default()
+    // Initialization of the step
+    static initStep(i_select_step_data)
     {
 
-    } // default
+        SelectStep.createDropdown(i_select_step_data);
 
-    ///////////////////////////////////////////////////////////////////////////
-    /////// End Default Values ////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////
 
-    // Sets the creation step array m_step_array
-    setStepArray()
+    } // initStep
+
+    // Create the select process step dropdown
+    static createDropdown(i_select_step_data)
     {
+        i_select_step_data.createDropdown('SelectStep.eventSelectDropdown');
+        
+        
+        //QQQ var dropdown_name_array = i_select_step_data.getDropdownNameArray();
 
 
-    } // setStepArray
+
+    } // createDropdown
+
+    // User selected item of the process step dropdown
+    static eventSelectDropdown(i_select_step_data)
+    {
+        var selected_option_number = i_select_step_data.getSelectedOptionNumber();
+
+        alert("SelectStep.eventSelectDropdown selected_option_number= " 
+                        + selected_option_number.toString())
+
+    } // eventSelectDropdown
+
 
 } // SelectStep

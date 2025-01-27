@@ -1,5 +1,5 @@
 // File: ReservationSystem.js
-// Date: 2025-01-22
+// Date: 2025-01-27
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -11,6 +11,8 @@
 ///////////////////////// Start Global Parameters /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+// An instance of the class SelectStepData that holds data for the step select step
+var g_data_step_select = null; 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -21,8 +23,20 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // Initialisation
+// 1. Init step select SelectStep.initStep
+// 1.1 Create An instance of the class SelectStepData that holds data for the step select step
+//     'id_div_select_display_step': Id for the container <div> for this step
+//     'id_div_display_step': Id for the display step <div>
+//     'id_div_select_step': Id for the <div> with the step dropdown control
+// 1.2 Init this step. Call of 
 function initReservationSystem()
-{   
+{
+    g_data_step_select = new 
+    SelectStepData('id_div_select_display_step', 'id_div_display_step', 'id_div_select_step', 'g_data_step_select');
+
+    //Temporary test g_data_step_select.setPromptSelect("Something else than the default value");
+
+    SelectStep.initStep(g_data_step_select);
                
 } // initReservationSystem
 

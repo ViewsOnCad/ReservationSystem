@@ -1,5 +1,5 @@
-// File: JazzDropdown.js
-// Date: 2024-12-23
+// File: DropdownCtrl.js
+// Date: 2025-01-27
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -15,7 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // // Class that creates a dropdown control
-class JazzDropdown 
+class DropdownCtrl 
 {
     // Creates the instance of the class
     constructor(i_id_drop_down, i_id_div_container) 
@@ -44,7 +44,7 @@ class JazzDropdown
         // Append string that is added to the dropdown name array
         this.m_append_str = '';
 
-        // The onchange function name. Only the name is input
+        // The onchange function name with or without argument (i_someting)
         this.m_onchange_function = '';
 
         // Label text
@@ -233,7 +233,7 @@ class JazzDropdown
 
         if (null == this.m_el_div_container)
         {
-            alert("JazzDropdown error: HTML element with id= " + this.m_id_div_container + " does not exist.");
+            alert("DropdownCtrl error: HTML element with id= " + this.m_id_div_container + " does not exist.");
 
             ret_b_check = false;
         }   
@@ -302,7 +302,17 @@ class JazzDropdown
 
         if (this.m_onchange_function.length > 0)
         {
-            ret_html_str = ret_html_str + ' onchange="' + this.m_onchange_function + '()" ';
+            var index_parenthesis = this.m_onchange_function.indexOf('(');
+
+            if (index_parenthesis < 0)
+            {
+                ret_html_str = ret_html_str + ' onchange="' + this.m_onchange_function + '()" ';
+            }
+            else
+            {
+                ret_html_str = ret_html_str + ' onchange="' + this.m_onchange_function + '" ';
+            }
+           
         }
 
         if (this.m_title.length > 0)
@@ -356,7 +366,7 @@ class JazzDropdown
 
     } // getHtmlString
 
-} // JazzDropdown
+} // DropdownCtrl
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Control Dropdown ////////////////////////////////////////////
