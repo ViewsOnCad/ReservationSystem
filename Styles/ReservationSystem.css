@@ -1,5 +1,5 @@
 /* 
-File: ReservationSystem.css Date: 2025-01-22
+File: ReservationSystem.css Date: 2025-01-28
 
 Author: Gunnar Liden
 
@@ -74,6 +74,61 @@ Defines all style classes for the application reservation layout
     overflow: hidden;   
     width: 755px;
     margin-left: 20px;
+}
+
+.cl_div_organization
+{
+    border: solid 2px red;
+    background-color: rgb(234, 236, 245);
+    overflow: hidden; 
+    width: 49%;
+    margin-top: 3px;
+    margin-left: 0.2%;
+    float: left;     
+}
+
+.cl_div_premises
+{
+    border: solid 2px red;
+    background-color: rgb(234, 236, 245);
+    overflow: hidden; 
+    width: 49%;
+    margin-top: 3px;
+    margin-right: 0.2%;
+    float: right;     
+}
+
+.cl_div_select_display_organization
+{
+    overflow: hidden; 
+    width: 100%;
+    clear: both;    
+}
+
+.cl_div_display_organization_premises
+{
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    width: 99%;
+    clear: both;   
+}
+
+.cl_div_select_organization_premises
+{
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    width: 99%;
+    color: black;
+    font-size: 10px;
+    clear: both;  
+
 }
 
 .cl_system_logo_text

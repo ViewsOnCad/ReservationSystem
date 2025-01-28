@@ -14,6 +14,12 @@
 // An instance of the class SelectStepData that holds data for the step select step
 var g_data_step_select = null; 
 
+// An instance of the class OrganizationStepData that holds data for the organization step
+var g_data_step_organization = null; 
+
+// An instance of the class PremisesStepData that holds data for the premises step
+var g_data_step_premises = null; 
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +46,20 @@ function initReservationSystem()
     customizeSelectStepData(g_data_step_select);
 
     SelectStep.initStep(g_data_step_select);
+
+    g_data_step_organization = new 
+    OrganizationStepData('id_div_select_display_organization', 'id_div_display_organization', 'id_div_select_organization', 'g_data_step_organization');
+
+    customizeOrganizationStepData(g_data_step_organization);
+
+    OrganizationStep.initStep(g_data_step_organization);
+
+    g_data_step_premises = new 
+    PremisesStepData('id_div_select_display_premises', 'id_div_display_premises', 'id_div_select_premises', 'g_data_step_premises');
+
+    customizePremisesStepData(g_data_step_premises);
+
+    PremisesStep.initStep(g_data_step_premises);
                
 } // initReservationSystem
 
@@ -58,6 +78,22 @@ function customizeSelectStepData(i_data_step_select)
     // i_data_step_select.setPromptSelect("Something else than the default value");
 
 } // customizeSelectStepData
+
+// Customization of the object OrganizationStepData
+function customizeOrganizationStepData(i_data_step_organization)
+{
+    // Example
+    // i_data_step_organization.setPromptSelect("Something else than the default value");
+
+} // customizeOrganizationStepData
+
+// Customization of the object PremisesStepData
+function customizePremisesStepData(i_data_step_premises)
+{
+    // Example
+    // i_data_step_premises.setPromptSelect("Something else than the default value");
+
+} // customizePremisesStepData
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
