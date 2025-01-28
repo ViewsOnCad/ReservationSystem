@@ -39,8 +39,17 @@ class PremisesStepData
         // Label for the dropdown
         this.m_label_dropdown = '';
 
+        // Tooltip for the textbox
+        this.m_tooltip_textbox = '';
+
+        // Label for the textbox
+        this.m_label_textbox = '';
+
         // Select premises dropdown
         this.m_dropdown = null;
+
+        // Textbox displaying the premises/version name
+        this.m_textbox = null;
 
         this.default();
 
@@ -58,6 +67,10 @@ class PremisesStepData
         this.m_tooltip_dropdown = this.defaultTooltipDropdown();
 
         this.m_label_dropdown = this.defaultLabelDropdown();
+
+        this.m_tooltip_textbox = this.defaultTooltipTextbox();
+
+        this.m_label_textbox = this.defaultLabelTextbox();
 
     } // default
 
@@ -124,6 +137,48 @@ class PremisesStepData
 		
     } // defaultLabelDropdown
 
+    // Default tooltip for the textbox
+    defaultTooltipTextbox()
+    {
+        var tooltip_textbox = new DefaultText();
+
+        tooltip_textbox.setDescription("Default tooltip for the premises textbox");
+
+        tooltip_textbox.setGerman("Zeigt den Lokal-Ordner. In diesem Ordner sind Ordner und Dateien für ein Lokal ");
+
+        tooltip_textbox.setEnglish("Displays the premises directory. All sub-directories and files for one room");
+
+        tooltip_textbox.setFrench("Affiche le dossier local. Ce dossier contient des dossiers et des fichiers pour un emplacement local");
+
+        tooltip_textbox.setItalian("Mostra la cartella locale. Questa cartella contiene cartelle e file per una posizione locale");
+
+        tooltip_textbox.setSwedish("Visar namnet pa en organisationens lokaler. I denna mapp finns alla undermappar och filer för denna lokal. ");
+
+        return tooltip_textbox.getText();
+        
+    } // defaultTooltipDropdown
+
+    // Default label for the textbox
+    defaultLabelTextbox()
+    {
+        var label_textbox = new DefaultText();
+
+        label_textbox.setDescription("Default label for the premises textbox ");
+
+        label_textbox.setGerman("Lokal");
+
+        label_textbox.setEnglish("Premises");
+
+        label_textbox.setFrench("Organisation");
+
+        label_textbox.setItalian("Premesse");
+
+        label_textbox.setSwedish("Lokal");
+
+        return label_textbox.getText();
+        
+    } // defaultLabelDropdown
+
     ///////////////////////////////////////////////////////////////////////////
     /////// End Default Texts /////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
@@ -153,6 +208,20 @@ class PremisesStepData
         this.m_label_dropdown = i_label_dropdown;
 
     } // setLabelDropdown
+
+    // Set tooltip for the textbox
+    setTooltipTextbox(i_tooltip_textbox)
+    {
+        this.m_tooltip_textbox = i_tooltip_textbox;
+
+    } // setTooltipTextbox
+
+    // Set label for the textbox
+    setLabelTextbox(i_label_textbox)
+    {
+        this.m_label_textbox = i_label_textbox;
+
+    } // setLabelTextbox
 	
     ///////////////////////////////////////////////////////////////////////////
     /////// End Set Texts /////////////////////////////////////////////////////
@@ -167,14 +236,28 @@ class PremisesStepData
     {
         return this.m_tooltip_dropdown;
 
-    } // setTooltipDropdown
+    } // getTooltipDropdown
 
 	// Get label for the dropdown
     getLabelDropdown()
     {
         return this.m_label_dropdown;
 
-    } // setLabelDropdown
+    } // getLabelDropdown
+
+    // Get tooltip for the textbox
+    getTooltipTextbox()
+    {
+        return this.m_tooltip_textbox;
+
+    } // getTooltipTextbox
+
+	// Get label for the textbox
+    getLabelTextbox()
+    {
+        return this.m_label_textbox;
+
+    } // getLabelTextbox
 
     ///////////////////////////////////////////////////////////////////////////
     /////// End Get Texts /////////////////////////////////////////////////////
@@ -231,6 +314,31 @@ class PremisesStepData
     ///////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////////////
+    /////// Start Textbox Functions ///////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    // Create the textbox that displays the premises name
+    createTextbox()
+    {
+        this.m_textbox = new TextboxCtrl(this.idTextbox(), this.m_id_div_display_container);
+
+        this.m_textbox.setLabelText(this.getLabelTextbox() + '&nbsp;&nbsp;');
+
+        this.m_textbox.setLabelTextPositionLeft();
+
+        this.m_textbox.setSize("30");
+
+        this.m_textbox.setReadOnlyFlag(true);
+
+        this.m_textbox.setTitle(this.getTooltipTextbox());
+
+    } // createTextbox
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// End Textbox Functions /////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
     /////// Start Id Element Hide Functions ///////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
 
@@ -254,6 +362,20 @@ class PremisesStepData
         return document.getElementById(this.m_id_div_select_display_step);
 
     }// elementDivDisplay
+
+    // Returns the identity of the textbox displaying the premises name
+    idTextbox()
+    {
+        return 'id_display_premises_textbox';
+
+    } // idTextbox
+
+    // Returns the element textbox displaying the premises name
+    elementTextbox()
+    {
+        return document.getElementById(this.idTextbox());
+
+    }// elementTextbox
 
     // Returns the <div> element that diplays the process step name
     elementDivDisplay()

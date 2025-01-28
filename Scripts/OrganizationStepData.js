@@ -40,8 +40,17 @@ class OrganizationStepData
         // Label for the dropdown
         this.m_label_dropdown = '';
 
+        // Tooltip for the textbox
+        this.m_tooltip_textbox = '';
+
+        // Label for the textbox
+        this.m_label_textbox = '';
+
         // Select organization step dropdown
         this.m_dropdown = null;
+
+        // Textbox displaying the organization name
+        this.m_textbox = null;
 
         this.default();
 
@@ -60,6 +69,10 @@ class OrganizationStepData
         this.m_tooltip_dropdown = this.defaultTooltipDropdown();
 
         this.m_label_dropdown = this.defaultLabelDropdown();
+
+        this.m_tooltip_textbox = this.defaultTooltipTextbox();
+
+        this.m_label_textbox = this.defaultLabelTextbox();
 
     } // default
 
@@ -126,6 +139,48 @@ class OrganizationStepData
 		
     } // defaultLabelDropdown
 
+    // Default tooltip for the textbox
+    defaultTooltipTextbox()
+    {
+        var tooltip_textbox = new DefaultText();
+
+        tooltip_textbox.setDescription("Default tooltip for the organization textbox");
+
+        tooltip_textbox.setGerman("Zeigt die Organistaion-Ordner. In diesem Ordner sind Ordner und Dateien für alle Lokale. ");
+
+        tooltip_textbox.setEnglish("Displays the organisation directory. All sub-directories and files for all of the organisations premises are in this directory");
+
+        tooltip_textbox.setFrench("Affiche le répertoire de l'organisation. Tous les sous-répertoires et fichiers de tous les locaux de l'organisation se trouvent dans ce répertoire.");
+
+        tooltip_textbox.setItalian("Visualizza la directory dell'organizzazione. Tutte le sottodirectory e i file di tutte le sedi dell'organizzazione si trovano in questa directory");
+
+        tooltip_textbox.setSwedish("Visar organisationsmappens namn. I denna mapp finns alla undermappar och filer för alla organisationens lokaler. ");
+
+        return tooltip_textbox.getText();
+        
+    } // defaultTooltipDropdown
+
+    // Default label for the textbox
+    defaultLabelTextbox()
+    {
+        var label_textbox = new DefaultText();
+
+        label_textbox.setDescription("Default label for the dropdown");
+
+        label_textbox.setGerman("Organisation");
+
+        label_textbox.setEnglish("Organization");
+
+        label_textbox.setFrench("Organisation");
+
+        label_textbox.setItalian("Organizzazione");
+
+        label_textbox.setSwedish("Organisation");
+
+        return label_textbox.getText();
+        
+    } // defaultLabelDropdown
+
     ///////////////////////////////////////////////////////////////////////////
     /////// End Default Texts /////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
@@ -154,6 +209,20 @@ class OrganizationStepData
         this.m_label_dropdown = i_label_dropdown;
 
     } // setLabelDropdown
+
+    // Set tooltip for the textbox
+    setTooltipTextbox(i_tooltip_textbox)
+    {
+        this.m_tooltip_textbox = i_tooltip_textbox;
+
+    } // setTooltipTextbox
+
+    // Set label for the textbox
+    setLabelTextbox(i_label_textbox)
+    {
+        this.m_label_textbox = i_label_textbox;
+
+    } // setLabelTextbox
 	
     ///////////////////////////////////////////////////////////////////////////
     /////// End Set Texts /////////////////////////////////////////////////////
@@ -176,6 +245,20 @@ class OrganizationStepData
         return this.m_label_dropdown;
 
     } // setLabelDropdown
+
+    // Get tooltip for the textbox
+    getTooltipTextbox()
+    {
+        return this.m_tooltip_textbox;
+
+    } // getTooltipTextbox
+
+	// Get label for the textbox
+    getLabelTextbox()
+    {
+        return this.m_label_textbox;
+
+    } // getLabelTextbox
 
     ///////////////////////////////////////////////////////////////////////////
     /////// End Get Texts /////////////////////////////////////////////////////
@@ -232,6 +315,31 @@ class OrganizationStepData
     ///////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////////////
+    /////// Start Textbox Functions ///////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    // Create the textbox that displays the organization name
+    createTextbox()
+    {
+        this.m_textbox = new TextboxCtrl(this.idTextbox(), this.m_id_div_display_container);
+
+        this.m_textbox.setLabelText(this.getLabelTextbox() + '&nbsp;&nbsp;');
+
+        this.m_textbox.setLabelTextPositionLeft();
+
+        this.m_textbox.setSize("30");
+
+        this.m_textbox.setReadOnlyFlag(true);
+
+        this.m_textbox.setTitle(this.getTooltipTextbox());
+
+    } // createTextbox
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// End Textbox Functions /////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
     /////// Start Id Element Hide Functions ///////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
 
@@ -248,6 +356,20 @@ class OrganizationStepData
         return document.getElementById(this.idDropdown());
 
     }// elementDropdown
+
+    // Returns the identity of the textbox displaying the organization name
+    idTextbox()
+    {
+        return 'id_display_organization_textbox';
+
+    } // idTextbox
+
+    // Returns the element textbox displaying the organization name
+    elementTextbox()
+    {
+        return document.getElementById(this.idTextbox());
+
+    }// elementTextbox
 
     // Returns the <div> element with elements elementDivDisplay and elementDivSelect
     elementDivDisplaySelect()

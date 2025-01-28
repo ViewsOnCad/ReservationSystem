@@ -15,34 +15,41 @@
 class PremisesStep
 {
     // Initialization of the step
-    static initStep(i_organization_step_data)
+    static initStep(i_premises_step_data)
     {
+        PremisesStep.createDropdown(i_premises_step_data);
 
-        PremisesStep.createDropdown(i_organization_step_data);
+        PremisesStep.createTextbox(i_premises_step_data);
 
-        i_organization_step_data.updateControls();
-
+        // i_premises_step_data.updateControls();
 
     } // initStep
 
     // Create the select premises dropdown
-    static createDropdown(i_organization_step_data)
+    static createDropdown(i_premises_step_data)
     {
-        i_organization_step_data.createDropdown('PremisesStep.eventSelectDropdown');
+        i_premises_step_data.createDropdown('PremisesStep.eventSelectDropdown');
 
     } // createDropdown
 
-    // User selected item of the premises dropdown
-    static eventSelectDropdown(i_organization_step_data)
+    // Create the display premises textbox
+    static createTextbox(i_premises_step_data)
     {
-        i_organization_step_data.updateControls();
+        i_premises_step_data.createTextbox();
+
+    } // createTextbox
+
+    // User selected item of the premises dropdown
+    static eventSelectDropdown(i_premises_step_data)
+    {
+        i_premises_step_data.updateControls();
 
     } // eventSelectDropdown
 
     // Updates the controls 
     static updateControls()
     {
-        i_organization_step_data.updateControls();
+        // i_premises_step_data.updateControls();
 
     } // updateControls
 

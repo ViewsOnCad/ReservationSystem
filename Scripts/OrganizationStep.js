@@ -20,17 +20,26 @@ class OrganizationStep
 
         OrganizationStep.createDropdown(i_organization_step_data);
 
-        i_organization_step_data.updateControls();
+        OrganizationStep.createTextbox(i_organization_step_data);
+
+        //i_organization_step_data.updateControls();
 
 
     } // initStep
 
-    // Create the select process step dropdown
+    // Create the select organization dropdown
     static createDropdown(i_organization_step_data)
     {
         i_organization_step_data.createDropdown('OrganizationStep.eventSelectDropdown');
 
     } // createDropdown
+
+    // Create the display organization textbox
+    static createTextbox(i_organization_step_data)
+    {
+        i_organization_step_data.createTextbox();
+
+    } // createTextbox
 
     // User selected item of the process step dropdown
     static eventSelectDropdown(i_organization_step_data)
@@ -42,7 +51,7 @@ class OrganizationStep
     // Updates the controls 
     static updateControls()
     {
-        i_organization_step_data.updateControls();
+        //i_organization_step_data.updateControls();
 
     } // updateControls
 
