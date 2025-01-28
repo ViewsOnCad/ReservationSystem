@@ -24,6 +24,14 @@ Defines all style classes for the application reservation layout
     min-height: 420px;
 }
 
+.cl_div_select_display_step
+{
+    background-color: rgb(60, 86, 218);
+    overflow: hidden; 
+    width: 100%;
+    clear: both;
+}
+
 .cl_div_display_step
 {
     background-color: rgb(60, 86, 218);
@@ -32,19 +40,23 @@ Defines all style classes for the application reservation layout
     font-weight: bold;
     padding-top: 3px;
     padding-bottom: 3px;
-    width: 100%;
-    clear: both;
+    text-align: center;
+    width: 58%;
+    float: left;
 }
 
 .cl_div_select_step
 {
-    border: solid 1px black; 
+   /* border: solid 1px black; */
     font-size: 12px;
     font-weight: bold;
     padding-top: 3px;
     padding-bottom: 3px;
-    width: 100%;
-    clear: both;
+    text-align: right;
+    width: 40%;
+    color: white;
+    font-size: 10px;
+    float: right;
 }
 
 /* Text logo <div> element */

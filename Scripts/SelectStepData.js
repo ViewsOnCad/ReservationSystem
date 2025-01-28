@@ -48,6 +48,12 @@ class SelectStepData
     	// Process step files for an updated event program
         this.m_step_update_event_program = '';
 
+        // Tooltip for the dropdown
+        this.m_tooltip_dropdown = '';
+
+        // Label for the dropdown
+        this.m_label_dropdown = '';
+
         // Select process step dropdown
         this.m_dropdown = null;
 
@@ -75,6 +81,10 @@ class SelectStepData
 
         this.m_step_update_event_program = this.defaultStepUpdate();
 
+        this.m_tooltip_dropdown = this.defaultTooltipDropdown();
+
+        this.m_label_dropdown = this.defaultLabelDropdown();
+
     } // default
 
     // Default prompt string: Select a creation process step
@@ -84,9 +94,9 @@ class SelectStepData
 
         prompt_select.setDescription("Default prompt string: Select a creation process step");
 
-        prompt_select.setGerman("Bitte Prozess-Schritt wählen");
+        prompt_select.setGerman("Prozess-Schritt wählen");
 
-        prompt_select.setEnglish("Please select process step");
+        prompt_select.setEnglish("Select process step");
 
         prompt_select.setFrench("Veuillez sélectionner l'étape du processus");
 
@@ -203,6 +213,48 @@ class SelectStepData
 
     } // defaultStepUpdate		
 
+    // Default tooltip for the dropdown
+    defaultTooltipDropdown()
+    {
+        var tooltip_dropdown = new DefaultText();
+
+        tooltip_dropdown.setDescription("Default tooltip for the dropdown");
+
+        tooltip_dropdown.setGerman("Nach der Wahl des Prozess-Schritts können Daten für diesen Schritt zugefügt oder geändert werden");
+
+        tooltip_dropdown.setEnglish("After selection of the process step may data for this step be added or changed");
+
+        tooltip_dropdown.setFrench("Après la sélection de l'étape du processus, les données de cette étape peuvent être ajoutées ou modifiées.");
+
+        tooltip_dropdown.setItalian("Dopo la selezione della fase del processo è possibile aggiungere o modificare i dati per questa fase");
+
+        tooltip_dropdown.setSwedish("Efter val av process steg kan data läggas till eller ändras för detta steg");
+
+        return tooltip_dropdown.getText();
+		
+    } // defaultTooltipDropdown
+
+    // Default label for the dropdown
+    defaultLabelDropdown()
+    {
+        var label_dropdown = new DefaultText();
+
+        label_dropdown.setDescription("Default label for the dropdown");
+
+        label_dropdown.setGerman("Schritt");
+
+        label_dropdown.setEnglish("Step");
+
+        label_dropdown.setFrench("Étape");
+
+        label_dropdown.setItalian("Étape");
+
+        label_dropdown.setSwedish("Steg");
+
+        return label_dropdown.getText();
+		
+    } // defaultLabelDropdown
+
     ///////////////////////////////////////////////////////////////////////////
     /////// End Default Texts /////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
@@ -253,8 +305,44 @@ class SelectStepData
 
     } // setStepUpdate
 
+    // Set tooltip for the dropdown
+    setTooltipDropdown(i_tooltip_dropdown)
+    {
+        this.m_tooltip_dropdown = i_tooltip_dropdown;
+
+    } // setTooltipDropdown
+
+    // Set label for the dropdown
+    setLabelDropdown(i_label_dropdown)
+    {
+        this.m_label_dropdown = i_label_dropdown;
+
+    } // setLabelDropdown
+	
     ///////////////////////////////////////////////////////////////////////////
     /////// End Set Texts /////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// Start Get Texts ///////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    // Get tooltip for the dropdown
+    getTooltipDropdown()
+    {
+        return this.m_tooltip_dropdown
+
+    } // setTooltipDropdown
+
+	// Get label for the dropdown
+    getLabelDropdown()
+    {
+        return this.m_label_dropdown
+
+    } // setLabelDropdown
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// End Get Texts /////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////////////
@@ -264,7 +352,7 @@ class SelectStepData
     // Creates the dropdown
     createDropdown(i_event_function_name_str)
     {
-        this.m_dropdown = new DropdownCtrl('id_select_process_step_dropdown', this.m_id_div_select_container);
+        this.m_dropdown = new DropdownCtrl(this.idDropdown(), this.m_id_div_select_container);
 
         this.m_dropdown.setNameArray(this.getDropdownNameArray());
 
@@ -272,17 +360,13 @@ class SelectStepData
 
         this.m_dropdown.setOnchangeFunctionName(i_event_function_name_str + '(' + this.m_global_variable_str + ')');
 
-        this.m_dropdown.setTitle('TODO Title');
+        this.m_dropdown.setTitle(this.getTooltipDropdown());
+
+        this.m_dropdown.setLabelText('&nbsp;&nbsp;' + this.getLabelDropdown() + '&nbsp;&nbsp;');
+
+        this.m_dropdown.setLabelTextPositionRight();
         
         this.m_dropdown.setAppendString('');
-
-/*
-
-    getHtmlElementLabelString is missing
-        this.m_dropdown.setLabelTextPositionLeft();
-
-        this.m_dropdown.setLabelText('Process step TODO');
-*/
 
     } // createDropdown
 
@@ -321,6 +405,80 @@ class SelectStepData
     /////// End Dropdown Functions ////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////////////
+    /////// Start Id Element Hide Functions ///////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
+    // Returns the identity of the dropdown
+    idDropdown()
+    {
+        return 'id_select_process_step_dropdown';
+
+    } // idDropdown
+
+    // Returns the dropdown element
+    elementDropdown()
+    {
+        return document.getElementById(this.idDropdown());
+
+    }// elementDropdown
+
+    // Returns the <div> element with elements elementDivDisplay and elementDivSelect
+    elementDivDisplaySelect()
+    {
+        return document.getElementById(this.m_id_div_select_display_step);
+
+    }// elementDivDisplay
+
+    // Returns the <div> element that diplays the process step name
+    elementDivDisplay()
+    {
+        return document.getElementById(this.m_id_div_display_container);
+
+    }// elementDivDisplay
+
+    // Returns the <div> element with the dropdown for the selection of step
+    elementDivSelect()
+    {
+        return document.getElementById(this.m_id_div_select_container);
+
+    }// elementDivDisplay
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// End Id Element Hide Functions /////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// Start Update Controls /////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+
+    // Updates the controls 
+    updateControls()
+    {
+        this. displayStepName();
+
+    } // updateControls
+
+    // Display the step name
+    displayStepName()
+    {
+        var selected_option_number = this.getSelectedOptionNumber();
+
+        var index_name_array = selected_option_number - 1;
+
+        var step_name = 'Name array is null';
+
+        if (this.m_step_array != null)
+        {
+            step_name = this.m_step_array[index_name_array];
+        }
+
+        this.elementDivDisplay().innerHTML = step_name;
+
+    } // displayStepName
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////// End Update Controls ///////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
 } // SelectStepData

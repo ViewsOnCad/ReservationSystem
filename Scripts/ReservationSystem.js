@@ -1,5 +1,5 @@
 // File: ReservationSystem.js
-// Date: 2025-01-27
+// Date: 2025-01-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -28,13 +28,16 @@ var g_data_step_select = null;
 //     'id_div_select_display_step': Id for the container <div> for this step
 //     'id_div_display_step': Id for the display step <div>
 //     'id_div_select_step': Id for the <div> with the step dropdown control
-// 1.2 Init this step. Call of 
+//     'g_data_step_select': The name of the global object of this class (string)
+// 1.2 Option: Customization of the object SelectStepData. 
+//     Call of customizeSelectStepData
+// 1.2 Init this step. Call of SelectStep.initStep
 function initReservationSystem()
 {
     g_data_step_select = new 
     SelectStepData('id_div_select_display_step', 'id_div_display_step', 'id_div_select_step', 'g_data_step_select');
 
-    //Temporary test g_data_step_select.setPromptSelect("Something else than the default value");
+    customizeSelectStepData(g_data_step_select);
 
     SelectStep.initStep(g_data_step_select);
                
@@ -42,4 +45,21 @@ function initReservationSystem()
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Main Functions //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Customization Functions ///////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Customization of the object SelectStepData
+function customizeSelectStepData(i_data_step_select)
+{
+    // Example
+    // i_data_step_select.setPromptSelect("Something else than the default value");
+
+} // customizeSelectStepData
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Customization Functions /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

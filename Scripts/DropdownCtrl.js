@@ -1,5 +1,5 @@
 // File: DropdownCtrl.js
-// Date: 2025-01-27
+// Date: 2025-01-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -284,13 +284,13 @@ class DropdownCtrl
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'left')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title);
         }
 
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'above')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title) + '<br>';
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title) + '<br>';
         }
 
         ret_html_str = ret_html_str +  '<select  id="' + this.m_id_drop_down + '" ';
@@ -359,7 +359,7 @@ class DropdownCtrl
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'right')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_drop_down, this.m_title);
         } 
         
         return ret_html_str;

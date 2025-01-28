@@ -1,5 +1,5 @@
 // File: SelectStep.js
-// Date: 2025-01-27
+// Date: 2025-01-28
 // Author: Gunnar Lidén
 
 // Content
@@ -20,6 +20,8 @@ class SelectStep
 
         SelectStep.createDropdown(i_select_step_data);
 
+        i_select_step_data.updateControls();
+
 
     } // initStep
 
@@ -27,23 +29,22 @@ class SelectStep
     static createDropdown(i_select_step_data)
     {
         i_select_step_data.createDropdown('SelectStep.eventSelectDropdown');
-        
-        
-        //QQQ var dropdown_name_array = i_select_step_data.getDropdownNameArray();
-
-
 
     } // createDropdown
 
     // User selected item of the process step dropdown
     static eventSelectDropdown(i_select_step_data)
     {
-        var selected_option_number = i_select_step_data.getSelectedOptionNumber();
-
-        alert("SelectStep.eventSelectDropdown selected_option_number= " 
-                        + selected_option_number.toString())
+        i_select_step_data.updateControls();
 
     } // eventSelectDropdown
+
+    // Updates the controls of the form
+    static updateControls()
+    {
+        i_select_step_data.updateControls();
+
+    } // updateControls
 
 
 } // SelectStep

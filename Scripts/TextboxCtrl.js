@@ -1,11 +1,11 @@
-// File: JazzTextBox.js
-// Date: 2024-02-04
+// File: TextboxCtrl.js
+// Date: 2025-01-28
 // Author: Gunnar Lidén
 
 // File content
 // =============
 //
-// Class JazzTextBox
+// Class TextboxCtrl
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Control Text Box //////////////////////////////////////////
@@ -18,8 +18,8 @@
 // Compulsary input is the identity of the text box and the container 
 // (normally a <div> element), where the text box shall be placed 
 // Here is a sample how an object of the class can be created:
-// var remark_text_box = new JazzTextBox("id_remark_text_box", "i_id_container")
-class JazzTextBox 
+// var remark_text_box = new TextboxCtrl("id_remark_text_box", "i_id_container")
+class TextboxCtrl 
 {
     // Function that is executed when an object of this class is created
     constructor(i_id_text_box, i_id_div_container) 
@@ -332,7 +332,7 @@ class JazzTextBox
 
         if (null == this.m_el_div_container)
         {
-            alert("JazzTextBox error: HTML element with id= " + this.m_id_div_container + " does not exist.");
+            alert("TextboxCtrl error: HTML element with id= " + this.m_id_div_container + " does not exist.");
 
             ret_b_check = false;
         }   
@@ -383,13 +383,13 @@ class JazzTextBox
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'left')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
         }
 
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'above')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title) + '<br>';
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title) + '<br>';
         }
 
         ret_html_str = ret_html_str + '<input type="' + this.m_input_type + '" id="' + this.m_id_text_box + '" ';
@@ -445,14 +445,14 @@ class JazzTextBox
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'right')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
         }
 
         return ret_html_str;
 
     } // getHtmlString
 
-} // JazzTextBox
+} // TextboxCtrl
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Control Text Box ////////////////////////////////////////////

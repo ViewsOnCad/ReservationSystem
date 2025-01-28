@@ -1,18 +1,18 @@
-// File: JazzButton.js
-// Date: 2023-05-08
+// File: ButtonCtrl.js
+// Date: 2025-01-28
 // Author: Gunnar Lidén
 
 // File content
 // =============
 //
-// Class JazzButton
+// Class ButtonCtrl
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Control Button ////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // // Class that creates a button control
-class JazzButton 
+class ButtonCtrl 
 {
     // Creates the instance of the class
     constructor(i_id_button, i_id_div_container) 
@@ -214,7 +214,7 @@ class JazzButton
 
         if (null == this.m_el_div_container)
         {
-            alert("JazzButton error: HTML element with id= " + this.m_id_div_container + " does not exist.");
+            alert("ButtonCtrl error: HTML element with id= " + this.m_id_div_container + " does not exist.");
 
             ret_b_check = false;
         }   
@@ -257,13 +257,13 @@ class JazzButton
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'left')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title);
         }
 
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'above')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title) + '<br>';
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title) + '<br>';
         }
 
         ret_html_str = ret_html_str +  '<button  id="' + this.m_id_button + '" ';
@@ -302,14 +302,14 @@ class JazzButton
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'right')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title);
+                UtilCtrl.getHtmlElementLabelString(this.m_label_text, this.m_id_button, this.m_title);
         }
 
         return ret_html_str;
 
     } // getHtmlString
 
-} // JazzButton
+} // ButtonCtrl
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Control Button //////////////////////////////////////////////
