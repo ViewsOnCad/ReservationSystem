@@ -21,7 +21,7 @@ class PremisesStep
 
         PremisesStep.createTextbox(i_premises_step_data);
 
-        // i_premises_step_data.updateControls();
+        i_premises_step_data.updateControls();
 
     } // initStep
 
@@ -47,11 +47,24 @@ class PremisesStep
     } // eventSelectDropdown
 
     // Updates the controls 
-    static updateControls()
+    static updateControls(i_premises_step_data)
     {
-        // i_premises_step_data.updateControls();
+        i_premises_step_data.updateControls();
 
     } // updateControls
 
+    // Hides the container <div> with the divs display and select
+    static hideDivDisplaySelect(i_premises_step_data)
+    {
+        i_premises_step_data.hideDivDisplaySelect();
+
+    } // hideDivDisplaySelect
+
+    // Displays the container <div> with the divs display and select
+    static displayDivDisplaySelect(i_premises_step_data)
+    {
+        i_premises_step_data.displayDivDisplaySelect();
+
+    } // displayDivDisplaySelect
 
 } // PremisesStep

@@ -78,7 +78,7 @@ Defines all style classes for the application reservation layout
 
 .cl_div_organization
 {
-    border: solid 2px red;
+    /* border: solid 2px red; */
     background-color: rgb(234, 236, 245);
     overflow: hidden; 
     width: 49%;
@@ -89,7 +89,7 @@ Defines all style classes for the application reservation layout
 
 .cl_div_premises
 {
-    border: solid 2px red;
+    /* border: solid 2px red; */
     background-color: rgb(234, 236, 245);
     overflow: hidden; 
     width: 49%;

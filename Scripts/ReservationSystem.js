@@ -1,5 +1,5 @@
 // File: ReservationSystem.js
-// Date: 2025-01-28
+// Date: 2025-01-29
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -19,6 +19,9 @@ var g_data_step_organization = null;
 
 // An instance of the class PremisesStepData that holds data for the premises step
 var g_data_step_premises = null; 
+
+// An instance of the class HideDisplaySteps for the handling of hide and display of divs
+var g_hide_display_steps = null;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -60,6 +63,11 @@ function initReservationSystem()
     customizePremisesStepData(g_data_step_premises);
 
     PremisesStep.initStep(g_data_step_premises);
+
+    g_hide_display_steps = new HideDisplaySteps(g_data_step_select, g_data_step_organization, 
+        g_data_step_premises, null, null, null);
+
+    g_hide_display_steps.exec(1);
                
 } // initReservationSystem
 

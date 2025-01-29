@@ -22,7 +22,7 @@ class OrganizationStep
 
         OrganizationStep.createTextbox(i_organization_step_data);
 
-        //i_organization_step_data.updateControls();
+        i_organization_step_data.updateControls();
 
 
     } // initStep
@@ -49,11 +49,25 @@ class OrganizationStep
     } // eventSelectDropdown
 
     // Updates the controls 
-    static updateControls()
+    static updateControls(i_organization_step_data)
     {
-        //i_organization_step_data.updateControls();
+        i_organization_step_data.updateControls();
 
     } // updateControls
+
+    // Hides the container <div> with the divs display and select
+    static hideDivDisplaySelect(i_organization_step_data)
+    {
+        i_organization_step_data.hideDivDisplaySelect();
+
+    } // hideDivDisplaySelect
+
+    // Displays the container <div> with the divs display and select
+    static displayDivDisplaySelect(i_organization_step_data)
+    {
+        i_organization_step_data.displayDivDisplaySelect();
+
+    } // displayDivDisplaySelect
 
 
 } // OrganizationStep

@@ -178,15 +178,15 @@ class SelectStepData
 
         create_layout.setDescription("Default process step create and export files");
 
-        create_layout.setGerman("Lokal wählen");
+        create_layout.setGerman("Dateien kreieren und exportiren");
 
-        create_layout.setEnglish("Please select process step");
+        create_layout.setEnglish("Create and export files");
 
-        create_layout.setFrench("Veuillez sélectionner l'étape du processus");
+        create_layout.setFrench("Créer et exporter des fichiers");
 
-        create_layout.setItalian("Seleziona la fase del processo");
+        create_layout.setItalian("Crea ed esporta file");
 
-        create_layout.setSwedish("Välj process steg");
+        create_layout.setSwedish("Skapa och exportera filer");
 
         return create_layout.getText();
 
@@ -455,7 +455,7 @@ class SelectStepData
     // Updates the controls 
     updateControls()
     {
-        this. displayStepName();
+        this.displayStepName();
 
     } // updateControls
 

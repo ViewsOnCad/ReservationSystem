@@ -1,5 +1,5 @@
 // File: OrganizationStepData.js
-// Date: 2025-01-28
+// Date: 2025-01-29
 // Author: Gunnar Lidén
 
 // Content
@@ -292,11 +292,11 @@ class OrganizationStepData
     // Returns the dropdown select process array
     getDropdownNameArray()
     {
-        this.m_step_array = [];
+        this.m_organization_array = [];
 
-        this.m_step_array[0] = this.m_step_prompt_select;
+        this.m_organization_array[0] = this.m_step_prompt_select;
 
-        return  this.m_step_array;
+        return  this.m_organization_array;
 
     } // getDropdownNameArray
 
@@ -378,6 +378,20 @@ class OrganizationStepData
 
     }// elementDivDisplay
 
+    // Hides the <div> element with elements elementDivDisplay and elementDivSelect
+    hideDivDisplaySelect()
+    {
+       this.elementDivDisplaySelect().style.display = 'none';
+
+    }// hideDivDisplaySelect
+
+    // Displays the <div> element with elements elementDivDisplay and elementDivSelect
+    displayDivDisplaySelect()
+    {
+       this.elementDivDisplaySelect().style.display = 'block';
+
+    }// displayDivDisplaySelect
+
     // Returns the <div> element that diplays the process step name
     elementDivDisplay()
     {
@@ -385,12 +399,40 @@ class OrganizationStepData
 
     }// elementDivDisplay
 
+    // Hides the <div> element elementDivDisplay
+    hideDivDisplay()
+    {
+       this.elementDivDisplay().style.display = 'none';
+
+    }// hideDivDisplay
+
+    // Displays the <div> element elementDivDisplay
+    displayDivDisplay()
+    {
+       this.elementDivDisplay().style.display = 'block';
+
+    }// displayDivDisplay
+
     // Returns the <div> element with the dropdown for the selection of step
     elementDivSelect()
     {
         return document.getElementById(this.m_id_div_select_container);
 
     }// elementDivDisplay
+
+    // Hides the <div> element elementDivSelect
+    hideDivSelect()
+    {
+       this.elementDivSelect().style.display = 'none';
+
+    }// hideDivSelect
+
+    // Displays the <div> element elementDivSelect
+    displayDivSelect()
+    {
+       this.elementDivSelect().style.display = 'block';
+
+    }// displayDivSelect     
 
     ///////////////////////////////////////////////////////////////////////////
     /////// End Id Element Hide Functions /////////////////////////////////////
@@ -403,27 +445,30 @@ class OrganizationStepData
     // Updates the controls 
     updateControls()
     {
-        this. displayOrganizationName();
+        var directory_name = this. getDirectoryName();
+
+        console.log("OrganizationStepData.updateControls directory_name= " + directory_name);
 
     } // updateControls
 
-    // Display the step name
-    displayOrganizationName()
+    // Returns the directory name
+    getDirectoryName()
     {
         var selected_option_number = this.getSelectedOptionNumber();
 
         var index_name_array = selected_option_number - 1;
 
-        var step_name = 'Name array is null';
+        var directory_name = 'Name array is null';
 
-        if (this.m_step_array != null)
+        if (this.m_organization_array != null)
         {
-            step_name = this.m_step_array[index_name_array];
+            directory_name = this.m_organization_array[index_name_array];
         }
 
-        this.elementDivDisplay().innerHTML = step_name;
+       return directory_name;
 
-    } // displayOrganizationName
+    } // getDirectoryName
+
 
     ///////////////////////////////////////////////////////////////////////////
     /////// End Update Controls ///////////////////////////////////////////////
